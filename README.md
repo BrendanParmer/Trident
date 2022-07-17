@@ -1,5 +1,33 @@
 # Trident
 ## About
+<table style="margin-left: auto; margin-right: auto;">
+    <tr>
+        <td>
+            <img
+                src="https://github.com/BrendanParmer/Trident/blob/master/imgs/jwst.jpeg"
+                alt="Original"
+                width="850"
+                height="850">
+        </td>
+        <td>
+            <img
+                src="https://github.com/BrendanParmer/Trident/blob/master/imgs/jwst.gif"
+                alt="Trident animation"
+                width="850"
+                height="850">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center;">Original</p>
+        </td>
+        <td>
+            <p style="text-align: center;">Trident animation</p>
+        </td>
+    </tr>
+</table>
+<p style="text-align: center;">Original image by NASA's James Webb Space Telescope</p>
+
 A Python script that creates low poly images uses Delaunay triangulation, based on this [nice blog post by Samuel Hinton](https://cosmiccoding.com.au/tutorials/lowpoly) on how to achieve this effect. 
 
 Trident uses multiprocessing to speed up this intensive process, lets the user specify parameters from the command line, and automatically handles things like video creation.
