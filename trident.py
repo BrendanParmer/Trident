@@ -56,7 +56,7 @@ def process_image(index: int, rate: int, begin: int, end: int) -> None:
     with count.get_lock():
         count.value += 1
         percent = count.value/(end - begin) * 100
-        print(f"{count.value:04d}/{end - begin} {percent:04f}", end='\r')
+        print(f"{count.value:04d}/{end - begin} {percent:.2f}", end='\r')
     
 
 if __name__ == '__main__':
