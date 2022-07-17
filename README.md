@@ -6,27 +6,28 @@
             <img
                 src="https://github.com/BrendanParmer/Trident/blob/master/imgs/jwst.jpeg"
                 alt="Original"
-                width="850"
-                height="850">
+                width="400"
+                height="400">
         </td>
         <td>
             <img
                 src="https://github.com/BrendanParmer/Trident/blob/master/imgs/jwst.gif"
                 alt="Trident animation"
-                width="850"
-                height="850">
+                width="400"
+                height="400">
         </td>
     </tr>
     <tr>
         <td>
-            <p style="text-align: center;">Original</p>
+            <p style="text-align: center;">Original (credit: <a href="https://www.nasa.gov/webbfirstimages">NASA</a>)</p>
         </td>
         <td>
             <p style="text-align: center;">Trident animation</p>
         </td>
     </tr>
 </table>
-<p style="text-align: center;">Original image by NASA's James Webb Space Telescope</p>
+
+
 
 A Python script that creates low poly images uses Delaunay triangulation, based on this [nice blog post by Samuel Hinton](https://cosmiccoding.com.au/tutorials/lowpoly) on how to achieve this effect. 
 
