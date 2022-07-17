@@ -1,0 +1,6 @@
+venv/
+output/
+trident
+*.jpeg
+*.jpg 
+*.png
