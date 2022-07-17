@@ -60,13 +60,13 @@ def process_image(index: int, rate: int, begin: int, end: int) -> None:
     
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="A test program")
+    parser = argparse.ArgumentParser(description="Create low poly images and videos from the command line")
     parser.add_argument("image", help="Input image")
-    parser.add_argument("--begin", default=0, type=int, help="starting index of thread")
-    parser.add_argument("--end", default=100, type=int, help="ending index of thread (inclusive)")
-    parser.add_argument("--rate", default=10, type=int, help="Rate of image convergence")
-    parser.add_argument("--worker_count", default=4, type=int, help="Number of workers used to process it")
-    parser.add_argument("--video", default=True, type=bool, help="Render a video at the end or not")
+    parser.add_argument("--begin", default=0, type=int, help="Starting index")
+    parser.add_argument("--end", default=100, type=int, help="Ending index")
+    parser.add_argument("--rate", default=10, type=int, help="Rate of point sampling (higher numbers generate more detailed images, with more triangles")
+    parser.add_argument("--worker_count", default=4, type=int, help="Number of worker processes used")
+    parser.add_argument("--video", action='store_true', help="Render a video at the end")
     parser.add_argument("--framerate", default=24, type=int, help="Framerate of rendered video")
     args = parser.parse_args()
 
@@ -93,6 +93,7 @@ if __name__ == '__main__':
     points = np.concatenate((corners, samples))
 
     img_name = (args.image).split(".")[0]
+    img_name = img_name.split("/")[-1]
     outdir = f"output/{img_name}"
     os.makedirs(outdir, exist_ok=True)
 
@@ -101,6 +102,7 @@ if __name__ == '__main__':
         pool.starmap(process_image, [(i, args.rate, args.begin, args.end) for i in range(args.begin, args.end)])
     print("Finished creating images")
 
+    print(args.video)
     if args.video:
         os.system(f"ffmpeg -framerate {args.framerate} -i {outdir}/%04d.png {outdir}/{img_name}.mp4")
         print("Created video")
